@@ -6,35 +6,37 @@
 #define   MAX_COUNT  200
 
 void  ChildProcess(void);                /* child process prototype  */
-void  ParentProcess(void);               /* parent process prototype */
+void  ParentProcess(int);               /* parent process prototype */
 
-void  main(void)
-{
+void  main(void){
+  int i = 0;
   pid_t  pid;
   int status;
-  pid = fork();
-  if (pid < 0){
+  
+  for (i = 0; i <= 2; i++){
+    pid = fork();
+    if (pid < 0){
     printf("Error: Fork Op\n");
   } else if (pid == 0){
-    fork();
     ChildProcess();
-  } else{
+  }
+  }
+  for (int i = 0; i <= 2; i++){
     wait(&status);
     ParentProcess(status);
   }
-          
 }
 
 void  ChildProcess(void)
 {
-  int   i;
-  int num = rand();
-  sleep(num);
-  for (i = 1; i <= MAX_COUNT; i++)
-    num = rand() % 30 + 1;
+  int i = 0;
+  int num;
+  srand(getpid());
+  num = rand() % 30 + 1;
+
+  for (i = 1; i <= num; i++)
     printf("Child with pid: %d is going to sleep for %d seconds!\n", getpid(), num);
-    printf("   This line is from child, value = %d\n", i);
-    sleep(num);
+    sleep(rand() % 10 + 1);
     printf("Child with pid: %dis awake! Where is my parent with pid: %d?\n", getpid(), getppid());
   printf("   *** Child process is done ***\n");
   exit(0);
@@ -43,9 +45,6 @@ void  ChildProcess(void)
 void  ParentProcess(int stat)
 {
   int   i;
-
-  for (i = 1; i <= MAX_COUNT; i++)
-    printf("This line is from parent, value = %d\n", i);
-    printf("Child Pid: %d has completed with exit status: %d!\n", getpid(), stat);
+  printf("Child Pid: %d has completed with exit status: %d!\n", getpid(), WEXITSTATUS(stat));
   printf("*** Parent is done ***\n");
 }
