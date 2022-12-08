@@ -1,2 +1,2 @@
-shell2: shell2.c
-	gcc -o shell2 shell2.c -I.
+shell2: shell.c
+	gcc -o shell2 shell.c -I.
