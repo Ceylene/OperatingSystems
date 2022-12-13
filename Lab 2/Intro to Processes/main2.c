@@ -4,6 +4,9 @@
 #include <stdlib.h>
 #include <sys/wait.h>
  
+
+// collaborated with Leandra McPhie and Sumayyah Husain
+
 void  ChildProcess(void);                /* child process prototype  */
 void  ParentProcess(int);               /* parent process prototype */
  
