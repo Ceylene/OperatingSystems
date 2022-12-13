@@ -1,6 +1,7 @@
 // list/list.c
 //
 // Implementation for linked list.
+
  
 #include <stdio.h>
 #include <stdlib.h>

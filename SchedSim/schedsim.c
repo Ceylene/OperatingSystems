@@ -1,3 +1,5 @@
+// collaborated with Leandra McPhie and Sumayyah Husain
+
 // C program for implementation of Simulation
 #include<stdio.h>
 #include<limits.h>

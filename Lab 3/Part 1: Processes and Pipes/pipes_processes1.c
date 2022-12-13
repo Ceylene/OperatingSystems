@@ -1,3 +1,5 @@
+// collaborated with Leandra McPhie and Sumayyah Husain
+
 // C program to demonstrate use of fork() and pipe()
 #include<stdio.h>
 #include<stdlib.h>
