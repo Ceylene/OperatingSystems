@@ -1,3 +1,5 @@
+//collaborated with Leandra McPhie and Summayyah Husain
+
 /* timer.c */
 #include <stdio.h>
 #include <stdlib.h>
